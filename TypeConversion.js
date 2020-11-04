@@ -53,7 +53,7 @@ console.log(typeof f); // prints data type as object
 var arr=[0,9,8];
 console.log(typeof arr);
 
-ob={ firstName:"Shankar",
+var ob={ firstName:"Shankar",
 lastName:"Mahadevan"}
 console.log(ob);
 console.log(typeof ob); //returns data type as object
@@ -68,4 +68,9 @@ console.log(typeof fn); //returns datatype as function
 // typeof undefined
 f=undefined;  //changing data type as undefined
 console.log(typeof f); // returns data type as object
+
+//typeof symbol
+var sm=Symbol(9);
+console.log(typeof sm); //returns symbol
+console.log(sm); //returns Symbol(9)
 
