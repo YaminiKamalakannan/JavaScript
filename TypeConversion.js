@@ -74,3 +74,10 @@ var sm=Symbol(9);
 console.log(typeof sm); //returns symbol
 console.log(sm); //returns Symbol(9)
 
+//typeof BigInt
+var d=10n;
+console.log(typeof d); //returns BigInt
+d=BigInt("10");
+console.log(d); //returns 10n
+console.log(typeof d); //returns bigint
+
