@@ -42,3 +42,30 @@ var value = true;
 alert(typeof Number(value));  //Converting Boolean to numbers -->returns data type as number
 
 alert(2+null); //Automatic type conversion --> considers null as 0 and returns 2
+
+
+// typeof null
+var f=0;  // data type is Number
+f=null;   // re assigning as null
+console.log(typeof f); // prints data type as object
+
+//typeof returns 'Object' for arrays, object,and null
+var arr=[0,9,8];
+console.log(typeof arr);
+
+ob={ firstName:"Shankar",
+lastName:"Mahadevan"}
+console.log(ob);
+console.log(typeof ob); //returns data type as object
+
+//typeof function
+function fn(){
+    alert("HI");
+}
+fn();
+console.log(typeof fn); //returns datatype as function
+
+// typeof undefined
+f=undefined;  //changing data type as undefined
+console.log(typeof f); // returns data type as object
+
