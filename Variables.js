@@ -69,3 +69,8 @@ var k= new String("string obj");
 console.log(k) // returns object {"string obj"}
 console.log(typeof k);  //returns object
 
+var d=String("hi");
+console.log(h==d); //returns true
+
+var j=new String("string obj");
+console.log(k==j); //returns false eventhough k and j have same value
