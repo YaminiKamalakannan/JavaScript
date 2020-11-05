@@ -55,6 +55,7 @@ console.log((a<b)&&(a>b)); //returns false
 console.log(null&&0); //returns null
 console.log(0&&""); //returns 0
 console.log(""&&true); //returns empty string
+console.log(1&&9); //returns 9
 
 /**
  * Logical OR -->returns 1st truly value
@@ -65,7 +66,6 @@ console.log(0||7); //returns 7
 console.log(0||false);  //returns false
 console.log(false||0); //returns 0
 console.log(false||"HI") //returns "HI"
-console.log(1&&9); //returns 1
 console.log(null||0); //returns 0
 console.log(0||null); //returns null
 
