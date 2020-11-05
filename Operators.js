@@ -52,6 +52,9 @@ console.log(true&&0);  //returns 0
 var a=6,b=9;
 console.log(a&&b); //returns 9
 console.log((a<b)&&(a>b)); //returns false
+console.log(null&&0); //returns null
+console.log(0&&""); //returns 0
+console.log(""&&true); //returns empty string
 
 /**
  * Logical OR -->returns 1st truly value
@@ -63,4 +66,43 @@ console.log(0||false);  //returns false
 console.log(false||0); //returns 0
 console.log(false||"HI") //returns "HI"
 console.log(1&&9); //returns 1
+console.log(null||0); //returns 0
+console.log(0||null); //returns null
+
+/**
+ * Logical NOT -->takes truth value to false, returns false
+ * with non boolean values--> returns false if operand can be converted to true
+ */
+console.log(!0); //returns true
+console.log(!1); //returns false
+console.log(!((a<b)&&(a>b)));    //returns true
+console.log(!("Hi"&&0)); //returns true
+
+// Nullish coalescing operator '??'
+var num=null ?? 'Null value';
+console.log(num);  //returns exp2, since exp1 is null
+num=9;
+console.log(num); //returns 9
+num=undefined ?? "Undefined value";
+console.log(num);
+num=null;
+console.log(num); //returns null
+ 
+num = null||undefined ?? "Null or Undefined value";
+console.log(num);  //shows syntax error
+num =(null||undefined) ?? "Null or Undefined value";
+console.log(num);
+
+num =(null||9) ?? "Null or Undefined value";
+console.log(num);  //returns 9 
+
+num =(null&&9) ?? "Null or Undefined value";
+console.log(num);  //returns the string
+
+num =(8&&null) ?? "Null or Undefined value";
+console.log(num);  //returns the string
+
+var p;
+num=p?? "Undefined value";
+console.log(num);  //returns the string
   
