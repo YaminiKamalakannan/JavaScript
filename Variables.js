@@ -74,3 +74,21 @@ console.log(h==d); //returns true
 
 var j=new String("string obj");
 console.log(k==j); //returns false eventhough k and j have same value
+
+// declaring boolean using Boolean wrapper object
+
+var b=Boolean(true);  //creates a primitive boolean
+console.log(typeof b); //returns boolean
+
+var g=Boolean("false");
+console.log(g) //returns true
+
+g=Boolean("");
+console.log(g); //returns false--> empty string is considered as false
+
+var ob= new Boolean(false); //creats object boolean
+console.log(typeof ob); //returns object
+
+if(b&&ob){
+  console.log("if statement executed");  //if block is executed since, false value ob Boolean object ob is treated as true
+}
