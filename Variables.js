@@ -92,3 +92,40 @@ console.log(typeof ob); //returns object
 if(b&&ob){
   console.log("if statement executed");  //if block is executed since, false value ob Boolean object ob is treated as true
 }
+
+// Boolean wrapper object
+var b=new Boolean();// creates boolean obj
+console.log(b);// returns Boolean obj- Boolean {false}
+var p=Boolean(); //creates Boolean primitive
+console.log(p);// returns false
+console.log(typeof p); // returns boolean
+
+b=new Boolean("");//Boolean {false}
+b=new Boolean(null);//Boolean {false}
+b=new Boolean(undefined);//Boolean {false}
+b=new Boolean(0);//Boolean {false}
+b=new Boolean(-0);//Boolean {false}
+b=new Boolean(-1254);//Boolean {true}
+b=new Boolean([]);//Boolean {true}
+b=new Boolean({});//Boolean {true}
+b=new Boolean("false");//Boolean {true}
+
+b=new Boolean(false);//Boolean {false}
+if(b){
+console.log("Boolean Object b is true");
+}// returns Boolean Object b is true--> false value ob boolean obj is taken as true in conditional statements
+
+//Boolean.prototype.toString()
+b=new Boolean("hi");// returns Boolean {true}
+b.toString();//"true"
+b.toString(98);//"true"
+b=new Boolean(false);//Boolean {false}
+b.toString();//"false"
+b=new Boolean("false");//Boolean {true}
+b.toString();//"true"
+
+//Boolean.prototype.valueOf()
+b.valueOf();// returns true-->returns the primitive value of Boolean obj
+b=Boolean("0");//true
+b.valueOf();//true
+b.toString();//"true"
