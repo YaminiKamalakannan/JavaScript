@@ -179,3 +179,55 @@ itr.next().value;//returns "f"
 //26)String.raw()
 String.raw`${s}`;// returns "Afternoon!"
 String.raw`\n\tkjkandja\t`;//returns "\n\tkjkandja\t" 
+
+//27) String.prototype.match()
+var text="I am an Engineer";
+var found=text.match(/[aE]n/);
+console.log(found)// ["an", index: 5, input: "I am an Engineer", groups: undefined]
+found=text.match(/[aE]n/g);
+console.log(found);// ["an", "En"]
+found=text.match(/\d/g);
+console.log(found)// null
+found=text.match(/n./g); //["n ", "ng", "ne"]
+found=text.match(/n../g);// ["n E", "ngi", "nee"]
+found=text.match("Engine");//["Engine", index: 8, input: "I am an Engineer", groups: undefined]
+
+//28)String.prototype.matchAll()
+
+/**
+ * found=text.matchAll(/n../g);
+ * for(let match of found){
+    console.log(match);
+    } returns
+ ["n E", index: 6, input: "I am an Engineer", groups: undefined]
+ ["ngi", index: 9, input: "I am an Engineer", groups: undefined]
+ ["nee", index: 12, input: "I am an Engineer", groups: undefined]
+
+ for(let match of found){
+    console.log(match[0]);
+}// returns undefined
+for(let match of found){
+    console.log(match.index);
+}// returns undefined
+for(let match of found){
+    console.log(found[match[0]]);
+}// returns undefined
+
+ */
+
+//String.prototype.replace() & replaceAll()
+var text1="carrots are healthy";
+var replaceText=/carrots/gi;
+var replaced=text1.replace(replaceText,"vegetables");
+console.log(replaced);// vegetables are healthy
+
+replaceText=/carrots/g;
+text1="carrots are healthy, carrots are rich in vitamin A";
+replaced=text1.replace(replaceText,"vegetables");//"vegetables are healthy, Carrots are rich in vitamin A"
+
+replaceText=/carrots/gi;
+replaced=text1.replaceAll(replaceText,"vegetables");//"vegetables are healthy, vegetables are rich in vitamin A"
+
+replaceText=/carrots/gi;//
+replaced=text1.replace(replaceText,"vegetables");//"vegetables are healthy, vegetables are rich in vitamin A"
+
