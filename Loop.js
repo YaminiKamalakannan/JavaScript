@@ -45,4 +45,13 @@ for(let i in obj){    // iterates through properties of obj
     console.log(obj[i]);
 }
 
+//for of
+var arr=[23,45,56];
+for(var value of arr){
+    console.log(value);
+} // returns arr elements
+
+for(let i in arr){
+    console.log(i);
+}// returns arr index
 
