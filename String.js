@@ -231,3 +231,11 @@ replaced=text1.replaceAll(replaceText,"vegetables");//"vegetables are healthy, v
 replaceText=/carrots/gi;//
 replaced=text1.replace(replaceText,"vegetables");//"vegetables are healthy, vegetables are rich in vitamin A"
 
+//String.prototype.toLocaleString()
+st=65435135;
+st.toString();//"65435135"
+st.toLocaleString();//"65,435,135"
+
+var d= new Date();
+d.toString();//"Tue Nov 10 2020 09:29:54 GMT+0530 (India Standard Time)"
+d.toLocaleString();//"11/10/2020, 9:29:54 AM"
