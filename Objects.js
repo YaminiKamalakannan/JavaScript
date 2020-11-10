@@ -271,11 +271,53 @@ typeof s;//"object"
 var val=s.valueOf();
 typeof val;//"string"
 
+//
+var obj1={};
+obj1.one="1st prop";
+obj1.two="2nd prop";
+obj1.three="3rd prop";
+console.log(obj1);// {one: "1st prop", two: "2nd prop", three: "3rd prop"}
+Object.keys(obj1);// ["one", "two", "three"]
+Object.getOwnPropertyDescriptor(obj1,"one");//{value: "1st prop", writable: true, enumerable: true, configurable: true}
+
+Object.defineProperty(obj1,"one",{
+    value:"1st UPDATE",
+    writable:true,
+    enumerable:true,
+    configurable:true
+});//{one: "1st UPDATE", two: "2nd prop", three: "3rd prop"}
+
+Object.defineProperty(obj1,"one",{
+    enumerable:false,
+    configurable:true
+});//{two: "2nd prop", three: "3rd prop", one: "1st UPDATE"}
+Object.getOwnPropertyDescriptor(obj1,"one");//{value: "1st UPDATE", writable: true, enumerable: false, configurable: true}
+Object.keys(obj1);// ["two", "three"]
+Object.defineProperty(obj1,"one",{enumerable:true});//{one: "1st UPDATE", two: "2nd prop", three: "3rd prop"}
+Object.getOwnPropertyDescriptor(obj1,"one");//{value: "1st UPDATE", writable: true, enumerable: true, configurable: true}
+Object.keys(obj1);// ["one", "two", "three"]
+Object.freeze(obj1);//-->writable and configurable--> set to false
+//Cannot modify the property descriptors of non configurable property
+
+obj1.four="4th prop";
+console.log(obj1);//-->returns {one: "1st UPDATE", two: "2nd prop", three: "3rd prop"}--> cannot add property to frozen obj
+delete obj1.one;
+console.log(obj1);// {one: "1st UPDATE", two: "2nd prop", three: "3rd prop"} -->Cannot delete property from frozen obj
+obj1.one="2nd UPDATE";
+console.log(obj1); //{one: "1st UPDATE", two: "2nd prop", three: "3rd prop"} -->cannot update value of exixting property
+Object.keys(obj1);// ["one", "two", "three"] -->still enumerable
+Object.values(obj1);// ["1st UPDATE", "2nd prop", "3rd prop"]
 
 
-
-
-
-
-
-
+var obj2={};
+obj2.name="Thamizh";
+obj2.DOB="23/09/1995";
+obj2.id=1020305;
+console.log(obj2);// {name: "Thamizh", DOB: "23/09/1995", id: 1020305}
+Object.seal(obj2);//--> sets configurability to false, remaining will be true
+obj2.name="name_updated";
+console.log(obj2);//{name: "name_updated", DOB: "23/09/1995", id: 1020305} -->can update prop value of sealed object
+delete obj2.DOB;
+console.log(obj2);// {name: "name_updated", DOB: "23/09/1995", id: 1020305} --> cannot delete property
+obj2.dept="IT";
+console.log(obj2);// {name: "name_updated", DOB: "23/09/1995", id: 1020305} -->cannot add prop to sealed object
