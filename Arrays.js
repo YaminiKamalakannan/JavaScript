@@ -342,3 +342,52 @@ var arr=[1,2,3,8,5,20];
 var filtered=arr.filter(element=>element%2==0);
 console.log(filtered);// [2, 8, 20]
 console.log(arr);// [1, 2, 3, 8, 5, 20]-->doesn't mutate the original array
+
+console.log(arr);// [1, 2, 3, 8, 5, 20]
+var reduced=arr.reduce((acc,curr)=>{console.log('acc:'+acc+' curr:'+curr);
+return acc+curr;});
+/**
+ * acc:1 curr:2
+ acc:3 curr:3
+ acc:6 curr:8
+ acc:14 curr:5
+ acc:19 curr:20
+ */
+
+console.log(reduced);// 39
+reduced=arr.reduce((acc,curr)=>{console.log('acc:'+acc+' curr:'+curr);
+return acc-curr;});
+ /**
+  * acc:1 curr:2
+ acc:-1 curr:3
+ acc:-4 curr:8
+ acc:-12 curr:5
+ acc:-17 curr:20 
+  */
+console.log(reduced)//-37
+reduced=arr.reduce((acc,curr)=>{console.log('acc:'+acc+' curr:'+curr);
+return acc*curr;});
+ /** 
+  * acc:1 curr:2
+ acc:2 curr:3
+ acc:6 curr:8
+ acc:48 curr:5
+ acc:240 curr:20
+  */
+console.log(reduced);//4800
+reduced=arr.reduce((acc,curr)=>{console.log('acc:'+acc+' curr:'+curr);
+return acc&&curr;});
+ /**acc:1 curr:2
+ acc:2 curr:3
+ acc:3 curr:8
+ acc:8 curr:5
+ acc:5 curr:20 */
+ console.log(reduced);//20
+var reducedRight=arr.reduceRight((acc,curr)=>{console.log('acc:'+acc+' curr:'+curr);
+return acc+curr;});
+ /**acc:20 curr:5
+ acc:25 curr:8
+ acc:33 curr:3
+ acc:36 curr:2
+ acc:38 curr:1 */
+console.log(reducedRight);// 39
