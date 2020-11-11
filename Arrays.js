@@ -147,8 +147,7 @@ console.log(ind);//returns -1 ==>if element not found
 //Array.prototype.flat()
 var toFlat=[1,2,[3,4]];
 var flatted=toFlat.flat();
-console.log(flatted);
-VM7275:1 (4) [1, 2, 3, 4]
+console.log(flatted);// [1, 2, 3, 4]
 toFlat=[1,2,3,[8,9,0,["hi",["hello",["welcome","Home"],"Good day"],"greet"],7,],[9,7,9]];
 flatted=toFlat.flat(2);// [1, 2, 3, 8, 9, 0, "hi",["hello",["welcome","Home"],"Good day"], "greet", 7, 9, 7, 9]
 flatted=toFlat.flat(3);// [1, 2, 3, 8, 9, 0, "hi", "hello",["welcome","Home"], "Good day", "greet", 7, 9, 7, 9]
