@@ -267,3 +267,78 @@ var iterator1=x.values();
 for(let i of iterator2){
     console.log(i); //returns every values from tha array x
 }
+
+//Array.prototype[@@iterator]()
+var i=[1,2,3,4];
+var itr=i[Symbol.iterator]();
+console.log(itr.next());// {value: 1, done: false}
+console.log(itr.next().value);// 2
+var arr=[1,2,3,4];
+var iterator=arr[Symbol.iterator]();
+for(let i of iterator){
+    console.log(i);
+}
+/** returns
+ * 1
+ * 2
+ * 3
+ * 4
+ */
+var itr=arr.entries();
+console.log(itr.next());// {value:[0,1], done: false}
+
+
+var arr1=[1,2,3];
+var arr2=['s','d','k'];
+var arrCon=arr1.concat(arr2);
+console.log(arrCon)// [1, 2, 3, "s", "d", "k"]
+console.log(arr1)// [1, 2, 3]
+console.log(arr2)// ["s", "d", "k"]
+arr1.concat(arr2);// [1, 2, 3, "s", "d", "k"]
+console.log(arr1);// [1, 2, 3]-->doesn't affect original array
+
+var arr3=arr1.concat();
+console.log(arr3);// (3) [1, 2, 3]
+arr3=arr3.concat("hi","hello"); //[1, 2, 3, "hi", "hello"]
+
+var arr=[1,2,3,4,5,0];
+var arr2=arr.copyWithin(1,5);
+console.log(arr2);// [1, 0, 3, 4, 5, 0]
+console.log(arr);// [1, 0, 3, 4, 5, 0]
+arr=[1,2,3,4,5,0];
+arr2=arr.copyWithin(1,4);
+console.log(arr2);// [1, 5, 0, 4, 5, 0]
+console.log(arr);// [1, 5, 0, 4, 5, 0]
+
+var arr=[1,2,3,4,5,6,0]
+console.log(arr);// [1, 2, 3, 4, 6, 0]
+var result=arr.entries();
+for( let [index,element] of result){
+    console.log("Element at index "+index+" is "+element);
+    }
+/** returns
+ *   Element at index 0 is 1
+     Element at index 1 is 2
+     Element at index 2 is 3
+     Element at index 3 is 4
+     Element at index 4 is 6
+     Element at index 5 is 0
+ */
+
+var arr=[1,2,3,4,5];
+arr.fill();
+console.log(arr);// [undefined, undefined, undefined, undefined, undefined]
+arr.fill(0,0);// [0, 0, 0, 0, 0]
+arr.fill(1,-1);
+(5) [0, 0, 0, 0, 1]
+console.log(arr);// [0, 0, 0, 0, 1]
+var arr1=arr.fill("hi",1,3);
+console.log(arr1);// [0, "hi", "hi", 0, 1]
+console.log(arr);// [0, "hi", "hi", 0, 1] -->changes the original array
+arr.fill({a:1,b:2},0,2);//[{a:1,b:2}, {a:1,b:2}, "hi", 0, 1]
+
+
+var arr=[1,2,3,8,5,20];
+var filtered=arr.filter(element=>element%2==0);
+console.log(filtered);// [2, 8, 20]
+console.log(arr);// [1, 2, 3, 8, 5, 20]-->doesn't mutate the original array
