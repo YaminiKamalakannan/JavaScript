@@ -554,12 +554,60 @@ function sample(){
 sample().then((message)=>console.log("Promise resolved : "+message))
 .catch((message)=>console.log("promise rejected : "+message)); //Promise resolved : Cooked
 
+//IIFE
+(function (){
+    var a=10;
+    return a*2;
+})();//20 -->returns immediately
+console.log(a); //thorws error--> cannot acces a
+var res=(function(){console.log("Pass");})();// Pass
+res;//undefined
+var a=(function(){return "pass";})();
+a;//"pass"
 
+(()=>"hi")();//"hi"
+((value)=>value+2)(6);//8
+(function(){return this})();// returns window object
 
+var userName="Paul";
+var f=((name)=>"user : "+name)(userName);
+console.log(f);// user : Paul
 
+var p=((colour)=>"My fav colour is "+colour)();
+p;//"My fav colour is undefined"
+var p=((colour)=>"My fav colour is "+colour)('Black');
+p;//"My fav colour is Black"
+var p=((colour)=>"My fav colour is "+colour)(favColour);// throws error--> favColour not defined
+var favColour="Purple";
+var p=((colour)=>"My fav colour is "+colour)(favColour);
+p;//"My fav colour is Purple"
 
+var obj={
+    a:'one',
+    b:'two',
+    f:(function(){
+        return this.a+" "+this.b;
+    })()
+}
+obj.a;//"one"
+obj.b;//"two"
+obj.f;//"undefined undefined"
 
+var obj={
+    a:'one',
+    b:'two',
+    f:function(){
+        return this.a+" "+this.b;
+    }
+}
+obj.f();//"one two"
 
+(function(){return "hi"})();//"hi"
+(function(){return "hi"}());//"hi"
+//function(){return "hi"}();// throws error
 
-
-
+(function show(){return "hi"})()//"hi"
+show();//"hi"
+var s=(function show(){return "hi"})();
+console.log(s);// hi
+show();//"hi"
