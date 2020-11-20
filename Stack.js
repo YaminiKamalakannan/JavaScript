@@ -121,3 +121,39 @@ b.reverseStack();
 //  3
 b.search(1);//2
 b.search(90);//"Element not found"
+
+//Call stack in js
+function one(){
+    console.log("inside one");
+    two();
+    console.log("end of one");
+}
+function two(){
+    console.log("invoked two");
+    inside2();
+    console.log("end of two")
+}
+function inside2(){
+    console.log("function inside two")
+}
+one();//returns
+// inside one
+// invoked two
+// function inside two
+// end of two
+// end of one
+
+function print(num){
+   if(num>0){
+    console.log("top "+num);
+    print(num-1);
+    console.log("bottom "+num)
+   }
+}
+print(3);
+// top 3
+// top 2
+// top 1
+// bottom 1
+// bottom 2
+// bottom 3
